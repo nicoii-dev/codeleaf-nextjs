@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ACCENT, PRICING } from "../lib/content";
 
 function PlanCard({
@@ -68,7 +71,13 @@ function PlanCard({
 
 export default function Pricing() {
   return (
-    <section id="pricing" style={{ background: "#FFFFFF", borderTop: "1px solid #DDE5DE", borderBottom: "1px solid #DDE5DE" }}>
+    <motion.section
+      id="pricing"
+      style={{ background: "#FFFFFF", borderTop: "1px solid #DDE5DE", borderBottom: "1px solid #DDE5DE" }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "96px 24px", display: "flex", flexDirection: "column", gap: 48 }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 640 }}>
           <h2
@@ -100,6 +109,6 @@ export default function Pricing() {
         </div>
         <p style={{ margin: 0, fontSize: 15, color: "#4A5A50" }}>{PRICING.maintenanceNote}</p>
       </div>
-    </section>
+    </motion.section>
   );
 }

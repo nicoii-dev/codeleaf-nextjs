@@ -1,11 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { CONTACT } from "../lib/content";
 import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
-    <section
+    <motion.section
       id="contact"
       className="mx-auto flex max-w-[1200px] flex-wrap gap-14 px-6 py-24"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
       {/* Contact Information */}
       <div className="flex min-w-0 flex-[1_1_380px] flex-col gap-5">
@@ -40,6 +46,6 @@ export default function Contact() {
 
       {/* Contact Form */}
       <ContactForm />
-    </section>
+    </motion.section>
   );
 }

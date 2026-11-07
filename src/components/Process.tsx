@@ -1,8 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { PROCESS_STEPS } from "../lib/content";
 
 export default function Process() {
   return (
-    <section id="process" className="bg-[#13231A] text-[#E8EFE9]">
+    <motion.section
+      id="process"
+      className="bg-[#13231A] text-[#E8EFE9]"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 py-24">
         {/* Section Header */}
         <div className="flex max-w-[640px] flex-col gap-[14px]">
@@ -38,6 +47,6 @@ export default function Process() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

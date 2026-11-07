@@ -1,12 +1,16 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ACCENT, SITE } from "../lib/content";
 
 export default function Hero() {
   return (
-<section
+<motion.section
   id="top"
   className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-14 px-6 py-24 pb-[104px]"
+  initial={{ opacity: 0, y: -20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
 >
   <div className="flex min-w-0 flex-[1_1_460px] flex-col gap-7">
     <span className="self-start rounded-full border border-[#C9D6CC] px-[14px] py-2 [font-family:var(--font-mono)] text-[13px] text-[#2F4A3A]">
@@ -101,6 +105,6 @@ export default function Hero() {
       </div>
     </div>
   </div>
-</section>
+</motion.section>
   );
 }

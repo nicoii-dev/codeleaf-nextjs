@@ -1,9 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { NAV_LINKS, SITE } from "../lib/content";
 import Logo from "./Logo";
 
 export default function Header() {
   return (
-    <header className="border-b border-[#DDE5DE] bg-[#F6F8F4]">
+    <motion.header
+      className="border-b border-[#DDE5DE] bg-[#F6F8F4]"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 px-6 py-5">
         {/* Logo and Brand */}
         <a
@@ -41,6 +49,6 @@ export default function Header() {
           </a>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

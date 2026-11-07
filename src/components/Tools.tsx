@@ -1,8 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ACCENT, TOOL_GROUPS } from "../lib/content";
 
 export default function Tools() {
   return (
-    <section id="tools" className="border-b border-[#DDE5DE] bg-white">
+    <motion.section
+      id="tools"
+      className="border-b border-[#DDE5DE] bg-white"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-12 px-6 py-24">
         {/* Section Header */}
         <div className="flex max-w-[640px] flex-col gap-[14px]">
@@ -49,6 +58,6 @@ export default function Tools() {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
